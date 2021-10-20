@@ -31,7 +31,7 @@
 * Network(nmap, tcdump, ping, mtr, traceroute, dig, airman, airodump, netstat, iptables)
 * Compiling apps from source(gcc, make and other related stuff)
 * System Performance(nmon, iostat, sar, vmstat, systemtap)
-* Other commands(ls, tail, head)
+* Other commands(ls, tail, head, lsblk, lshw, uname, lsb_release, hostname, ln)
 
 #### Networking, Security and Protocols
 * HTTP
