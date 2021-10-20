@@ -1,11 +1,12 @@
 #Ansible
+
 Ansible is an open source IT automation engine that automates provisioning, configuration management, application deployment, orchestration, and many other IT processes.
 
 Use Ansible automation to install software, automate daily tasks, provision infrastructure, improve security and compliance, patch systems, and share automation across the organization.
 
 [More details](https://www.redhat.com/en/topics/automation/learning-ansible-tutorial)
 
-***Benefits of Ansible***
+**Benefits of Ansible**
 * **Free:** Ansible is an open-source tool.
 * **Very simple to set up and use:** No special coding skills are necessary to use Ansible’s playbooks.
 * **Powerful:** Ansible lets you model even highly complex IT workflows. 
@@ -29,13 +30,13 @@ $ ssh-key-gen -b 4096 -t RSA -C my-local-machine
 $ ssh-copy-id ansible@ip
 ```
 
-***Step 3 — Check ansible is working or not***
+**Step 3 — Check ansible is working or not**
 
 ```sh
 $ ansible --version
 ```
 
-***Step 4 — Configure Ansible server***
+**Step 4 — Configure Ansible server**
 Edit /etc/ansible/ansible.cfg file and uncomment inclue hosts file line and then update hosts file with target node details like below
 
 ```sh
@@ -49,7 +50,7 @@ node2 ansible_host=10.10.10.6 ansible_ssh_common_args='-o StrictHostKeyChecking=
 node3 ansible_host=10.10.10.7 ansible_ssh_common_args='-o StrictHostKeyChecking=no' ansible_user=ansible
 ```
 
-***Step 5 — Configure Ansible target node***
+**Step 5 — Configure Ansible target node**
 Login to the target node one by one and then create a user with name ansible and add the new user as sudoers file
 ```sh
 $ sudo adduser ansible
@@ -62,7 +63,7 @@ End of the file add the below line
 ansible ALL=(ALL:ALL) NOPASSWD: ALL 
 ```
 
-####Useful ansible command
+#### Useful ansible command
 
 ```sh
 #show inventory details in yaml format
