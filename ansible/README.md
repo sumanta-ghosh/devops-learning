@@ -90,4 +90,19 @@ $ ansible all -b -m service -a "name=apache2 state=restarted"
 #Gather facts
 ansible demo[0] -m setup
 ansible demo[0] -m setup -a "filter=*ipv4*"
+
+#run playbook
+$ ansible-playbook first.yml -i hosts
+$ ansible-playbook first.yml -i hosts --limit node1
+$ ansible-playbook first.yml -i hosts --limit master
+$ ansible-playbook first.yml -i hosts --limit demo[0]
+
+#ansible vault
+$ ansible-vault create playbook.yml
+$ ansible-vault edit playbook.yml
+$ ansible-playbook playbook.yml --ask-vault-pass -i hosts
+
+$ ansible-vault encrypt existing-playbook.yml
+$ ansible-vault decrypt existing-playbook.yml
+
 ```
