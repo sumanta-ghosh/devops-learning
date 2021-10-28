@@ -1,0 +1,5 @@
+---
+http_host: "ncoderslab.com"
+http_conf: "ncoderslab.com.conf"
+http_port: "80"
+disable_default: true

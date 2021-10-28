@@ -1,0 +1,47 @@
+---
+# These tasks install http and the php modules.
+
+- name: Install apache2 and php etc
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - apache2
+    - php
+
+- name: enabled mod_rewrite
+  apache2_module:
+    name: rewrite
+    state: present
+  notify:
+    - Restart webserver
+
+- name: Create document root for {{http_host}}
+  file:
+    path: "/var/www/{{ http_host }}"
+    state: directory
+
+- name: Set up Apache virtualhost
+  template:
+    src: "files/apache.conf.j2"
+    dest: "/etc/apache2/sites-available/{{ http_conf }}"
+  notify: 
+    - Restart webserver
+
+- name: Enable host {{http_host}}
+  shell: /usr/sbin/a2ensite {{ http_conf }}
+  notify: 
+    - Restart webserver
+
+- name: Disable default Apache site
+  shell: /usr/sbin/a2dissite 000-default.conf
+  when: disable_default
+  notify: 
+    - Restart webserver
+
+# Copy site files
+- name: Sets Up PHP Index Page
+  copy:
+    src: "files/{{http_host}}/"
+    dest: "/var/www/{{ http_host }}"
+    force: yes

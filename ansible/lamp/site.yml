@@ -1,0 +1,8 @@
+--- # My First Testing YAML Playbook
+- hosts: web
+  user: sumanta
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  roles:
+    - php
