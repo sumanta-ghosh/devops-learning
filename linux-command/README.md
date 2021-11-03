@@ -1,7 +1,7 @@
-# Linux important commands 
+## Linux commands with use cases
 
 
-#### How to show lines in a files that does not strat with some prefix.  Let say I want show all the lines in www.conf file without the lines that are comment out. It means show the line that are not start with ';' or '#' We can do that in many ways, I like the below two soluntions 
+#####  Prints all lines in www.conf file that start with any character other than <span style="color:red">#</span> and <span style="color:red">;</span>
 
 ```sh
 $ grep "^[^#;]" www.conf
